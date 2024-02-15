@@ -1,0 +1,407 @@
+@prefix : <http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix infraOT: <http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#> .
+@base <http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem> .
+
+<http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem> rdf:type owl:Ontology ;
+                                                                                  rdfs:comment "Captures spatial relatioships in a roadinfrastructure system"@en ;
+                                                                                  rdfs:label "Infra Ontology"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#consistsOf
+infraOT:consistsOf rdf:type owl:ObjectProperty ;
+                   rdfs:domain infraOT:Polyline ;
+                   rdfs:range infraOT:Line .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt
+infraOT:isLocatedAt rdf:type owl:ObjectProperty ;
+                    rdfs:domain infraOT:Localisation ;
+                    rdfs:range infraOT:Point .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtEndpoint
+infraOT:isLocatedAtEndpoint rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf infraOT:isLocatedAt ;
+                            rdf:type owl:FunctionalProperty ;
+                            rdfs:domain infraOT:LineLocalisation ;
+                            rdfs:range infraOT:EndPoint .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtMidpoint
+infraOT:isLocatedAtMidpoint rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf infraOT:isLocatedAt ;
+                            rdf:type owl:FunctionalProperty ;
+                            rdfs:domain infraOT:PointLocalisation ;
+                            rdfs:range infraOT:MidPoint .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtStartpoint
+infraOT:isLocatedAtStartpoint rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf infraOT:isLocatedAt ;
+                              rdf:type owl:FunctionalProperty ;
+                              rdfs:domain infraOT:LineLocalisation ;
+                              rdfs:range infraOT:StartPoint .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith
+infraOT:isLocatedWith rdf:type owl:ObjectProperty ;
+                      owl:inverseOf infraOT:locates ;
+                      rdf:type owl:FunctionalProperty ,
+                               owl:AsymmetricProperty ;
+                      rdfs:domain infraOT:RoadInfrastructureElement ;
+                      rdfs:range infraOT:Localisation .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith
+infraOT:isPositionedWith rdf:type owl:ObjectProperty ;
+                         rdfs:domain infraOT:Localisation ;
+                         rdfs:range infraOT:Positioning .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#locates
+infraOT:locates rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ,
+                         owl:AsymmetricProperty ;
+                rdfs:domain infraOT:Localisation ;
+                rdfs:range infraOT:RoadInfrastructureElement .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#pointsOn
+infraOT:pointsOn rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain infraOT:Point ;
+                 rdfs:range infraOT:ReferenceElement .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#positionedBy
+infraOT:positionedBy rdf:type owl:ObjectProperty ;
+                     rdfs:domain infraOT:RoadInfrastructureElement ;
+                     rdfs:range infraOT:Positioning ;
+                     owl:propertyChainAxiom ( infraOT:isLocatedWith
+                                              infraOT:isPositionedWith
+                                            ) .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#referencedBy
+infraOT:referencedBy rdf:type owl:ObjectProperty ;
+                     rdfs:domain infraOT:RoadInfrastructureElement ;
+                     rdfs:range infraOT:ReferenceElement ;
+                     owl:propertyChainAxiom ( infraOT:isLocatedWith
+                                              infraOT:isLocatedAt
+                                              infraOT:pointsOn
+                                            ) ;
+                     rdfs:comment "testcomment" ;
+                     rdfs:label "referenced by" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasDistance
+infraOT:hasDistance rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain infraOT:PositioningWithDistance ;
+                    rdfs:range owl:real ;
+                    rdfs:comment "Describes the distance between the road infrastructure element and the reference element in the cross section" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasStation
+infraOT:hasStation rdf:type owl:DatatypeProperty ;
+                   rdfs:domain infraOT:Point ;
+                   rdfs:range owl:real ;
+                   rdfs:comment "Describes the location on a linear reference element via the distance to the start of the linear reference element" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement
+infraOT:AccidentElement rdf:type owl:Class ;
+                        rdfs:subClassOf infraOT:RoadInfrastructureElement ;
+                        rdfs:comment "Data set containing accident data" ;
+                        rdfs:label "Accident"@en .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge
+infraOT:Bridge rdf:type owl:Class ;
+               rdfs:subClassOf infraOT:RoadInfrastructureElement ;
+               rdfs:comment "Dataset containing bridge data" ;
+               rdfs:label "Bridge"@en .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#CountingPoint
+infraOT:CountingPoint rdf:type owl:Class ;
+                      rdfs:subClassOf infraOT:RoadInfrastructureElement ;
+                      rdfs:comment "data set containing data from traffic counting points" ;
+                      rdfs:label "Counting Point"@en .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint
+infraOT:EndPoint rdf:type owl:Class ;
+                 rdfs:subClassOf infraOT:Point ;
+                 rdfs:comment "describes the end point of the road infrastructure element in relation to the reference element" ;
+                 rdfs:label "End Point" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment
+infraOT:Equipment rdf:type owl:Class ;
+                  rdfs:subClassOf infraOT:RoadInfrastructureElement ;
+                  rdfs:comment "A data set that contains data on a piece of equipment. Equipment elements can be, for example, signs, traffic lights or similar." ;
+                  rdfs:label "Equipment"@en .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning
+infraOT:HorizontalPositioning rdf:type owl:Class ;
+                              rdfs:subClassOf infraOT:Positioning ;
+                              owl:disjointWith infraOT:VerticalPositioning ;
+                              rdfs:comment "describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the horizontal direction" ;
+                              rdfs:label "Horizontal Positioning" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningNextTo
+infraOT:HorizontalPositioningNextTo rdf:type owl:Class ;
+                                    rdfs:subClassOf infraOT:HorizontalPositioning ,
+                                                    infraOT:PositioningWithDistance ;
+                                    owl:disjointWith infraOT:HorizontalPositioningOn ;
+                                    rdfs:comment "describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the horizontal direction for road infrastructure elements that lie next to the reference element" ;
+                                    rdfs:label "horizontal positioning next to" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningOn
+infraOT:HorizontalPositioningOn rdf:type owl:Class ;
+                                rdfs:subClassOf infraOT:HorizontalPositioning ,
+                                                infraOT:PositioningWithoutDistance ;
+                                rdfs:comment "describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the horizontal direction for road infrastructure elements that lie on the reference element" ;
+                                rdfs:label "horizontal positioning on" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Line
+infraOT:Line rdf:type owl:Class ;
+             rdfs:subClassOf infraOT:ReferenceElement ;
+             rdfs:comment "Describes a linear reference element" ;
+             rdfs:label "Line"@en .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#LineLocalisation
+infraOT:LineLocalisation rdf:type owl:Class ;
+                         owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty infraOT:isLocatedAtEndpoint ;
+                                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                      owl:onClass infraOT:EndPoint
+                                                                    ]
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty infraOT:isLocatedAtStartpoint ;
+                                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                      owl:onClass infraOT:StartPoint
+                                                                    ]
+                                                                  ) ;
+                                               rdf:type owl:Class
+                                             ] ;
+                         rdfs:subClassOf infraOT:Localisation ;
+                         owl:disjointWith infraOT:PointLocalisation ;
+                         rdfs:comment "describes the position of the road infrastructure element to the reference element in the longitudinal direction by abstracting the infrastructure element as a line object" ;
+                         rdfs:label "Line Localisation" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation
+infraOT:Localisation rdf:type owl:Class ;
+                     owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty infraOT:isPositionedWith ;
+                                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                  owl:onClass infraOT:HorizontalPositioning
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty infraOT:isPositionedWith ;
+                                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                  owl:onClass infraOT:VerticalPositioning
+                                                                ]
+                                                              ) ;
+                                           rdf:type owl:Class
+                                         ] ;
+                     owl:disjointWith infraOT:Positioning ;
+                     rdfs:comment "describes the position of the road infrastructure element in relation to the reference element in the longitudinal direction" ;
+                     rdfs:label "Localisation" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint
+infraOT:MidPoint rdf:type owl:Class ;
+                 rdfs:subClassOf infraOT:Point ;
+                 rdfs:comment "describes the center of the road infrastructure element in relation to the reference element" ;
+                 rdfs:label "Mid Point" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point
+infraOT:Point rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty infraOT:locates ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onClass infraOT:Localisation
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty infraOT:pointsOn ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onClass infraOT:ReferenceElement
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:comment "describes a location on a linear reference element" ;
+              rdfs:label "Point" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PointLocalisation
+infraOT:PointLocalisation rdf:type owl:Class ;
+                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                owl:onProperty infraOT:isLocatedAtMidpoint ;
+                                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                owl:onClass infraOT:MidPoint
+                                              ] ;
+                          rdfs:subClassOf infraOT:Localisation ;
+                          rdfs:comment "describes the position of the road infrastructure element to the reference element in the longitudinal direction by abstracting the infrastructure element as a point object" ;
+                          rdfs:label "Point Localisation" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Polyline
+infraOT:Polyline rdf:type owl:Class ;
+                 rdfs:subClassOf infraOT:ReferenceElement ;
+                 rdfs:comment "Describes a linear reference element consisting of several line elements" ;
+                 rdfs:label "Polyline"@en .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning
+infraOT:Positioning rdf:type owl:Class ;
+                    rdfs:comment "describes the position of the road infrastructure element in relation to the reference element in the transverse direction" ;
+                    rdfs:label "Positioning" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance
+infraOT:PositioningWithDistance rdf:type owl:Class ;
+                                rdfs:subClassOf infraOT:Positioning ;
+                                owl:disjointWith infraOT:PositioningWithoutDistance ;
+                                rdfs:comment "describes the positioning of the road infrastructure element in relation to the reference element if the road infrastructure element has a distance to the reference element in the cross-section" ;
+                                rdfs:label "Positioning with Distance" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance
+infraOT:PositioningWithoutDistance rdf:type owl:Class ;
+                                   rdfs:subClassOf infraOT:Positioning ;
+                                   rdfs:comment "describes the positioning of the road infrastructure element in relation to the reference element if the road infrastructure element has no distance to the reference element in the cross-section" ;
+                                   rdfs:label "Positioning without distance" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement
+infraOT:ReferenceElement rdf:type owl:Class ;
+                         owl:disjointWith infraOT:RoadInfrastructureElement ;
+                         rdfs:comment "Abstract element for referencing individual road infrastructure elements. In most cases, elements of a road network are reference elements." ;
+                         rdfs:label "Reference Element" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road
+infraOT:Road rdf:type owl:Class ;
+             rdfs:subClassOf infraOT:RoadInfrastructureElement ;
+             rdfs:comment "Dataset containing data about roads or roadsections" ;
+             rdfs:label "Road"@en .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement
+infraOT:RoadInfrastructureElement rdf:type owl:Class ;
+                                  rdfs:comment "Element of the road infrastructure" ;
+                                  rdfs:label "Roadinfrastructureelment" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint
+infraOT:StartPoint rdf:type owl:Class ;
+                   rdfs:subClassOf infraOT:Point ;
+                   rdfs:comment "describes the starting point of the road infrastructure element in relation to the reference element" ;
+                   rdfs:label "Start Point" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning
+infraOT:VerticalPositioning rdf:type owl:Class ;
+                            rdfs:subClassOf infraOT:Positioning ;
+                            rdfs:comment "describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the vertical direction" ;
+                            rdfs:label "Vertical Positioning" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningAbove
+infraOT:VerticalPositioningAbove rdf:type owl:Class ;
+                                 rdfs:subClassOf infraOT:PositioningWithDistance ,
+                                                 infraOT:VerticalPositioning ;
+                                 rdfs:comment "describes the positioning of the road infrastructure element relative to the reference element in the cross-section in the vertical direction when the road infrastructure element is positioned above the reference element" ;
+                                 rdfs:label "vertical positioning above" .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningOn
+infraOT:VerticalPositioningOn rdf:type owl:Class ;
+                              rdfs:subClassOf infraOT:PositioningWithoutDistance ,
+                                              infraOT:VerticalPositioning ;
+                              rdfs:comment "describes the positioning of the road infrastructure element relative to the reference element in the cross-section in the vertical direction when the road infrastructure element is positioned on the reference element" ;
+                              rdfs:label "vertical positioning on"@en .
+
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningUnder
+infraOT:VerticalPositioningUnder rdf:type owl:Class ;
+                                 rdfs:subClassOf infraOT:PositioningWithDistance ,
+                                                 infraOT:VerticalPositioning ;
+                                 rdfs:comment "describes the positioning of the road infrastructure element relative to the reference element in the cross-section in the vertical direction when the road infrastructure element is positioned under the reference element" ;
+                                 rdfs:label "vertical positioning under"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning1
+infraOT:Positioning1 rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( infraOT:AccidentElement
+                infraOT:Bridge
+                infraOT:CountingPoint
+                infraOT:Equipment
+                infraOT:Road
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( infraOT:EndPoint
+                infraOT:MidPoint
+                infraOT:StartPoint
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( infraOT:VerticalPositioningAbove
+                infraOT:VerticalPositioningOn
+                infraOT:VerticalPositioningUnder
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointProperties ;
+  owl:members ( infraOT:isLocatedAtEndpoint
+                infraOT:isLocatedAtMidpoint
+                infraOT:isLocatedAtStartpoint
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
