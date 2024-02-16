@@ -99,7 +99,6 @@ infraOT:referencedBy rdf:type owl:ObjectProperty ;
                                               infraOT:isLocatedAt
                                               infraOT:pointsOn
                                             ) ;
-                     rdfs:comment "testcomment" ;
                      rdfs:label "referenced by" .
 
 
