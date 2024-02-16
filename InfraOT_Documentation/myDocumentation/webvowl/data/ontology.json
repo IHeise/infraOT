@@ -1,0 +1,1057 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2002/07/owl", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem" ],
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "labels" : {
+      "en" : "Infra Ontology"
+    },
+    "comments" : {
+      "en" : "Captures spatial relatioships in a roadinfrastructure system"
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "22",
+    "type" : "owl:Class"
+  }, {
+    "id" : "23",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "9",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  }, {
+    "id" : "38",
+    "type" : "owl:Class"
+  }, {
+    "id" : "25",
+    "type" : "owl:Class"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "51",
+    "type" : "owl:Class"
+  }, {
+    "id" : "52",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningAbove",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VerticalPositioningAbove",
+      "undefined" : "vertical positioning above"
+    },
+    "comment" : {
+      "undefined" : "describes the positioning of the road infrastructure element relative to the reference element in the cross-section in the vertical direction when the road infrastructure element is positioned above the reference element"
+    },
+    "id" : "1",
+    "superClasses" : [ "2", "3" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PositioningWithoutDistance",
+      "undefined" : "Positioning without distance"
+    },
+    "subClasses" : [ "6", "7" ],
+    "comment" : {
+      "undefined" : "describes the positioning of the road infrastructure element in relation to the reference element if the road infrastructure element has no distance to the reference element in the cross-section"
+    },
+    "id" : "4",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningOn",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VerticalPositioningOn",
+      "en" : "vertical positioning on"
+    },
+    "comment" : {
+      "undefined" : "describes the positioning of the road infrastructure element relative to the reference element in the cross-section in the vertical direction when the road infrastructure element is positioned on the reference element"
+    },
+    "id" : "7",
+    "superClasses" : [ "4", "3" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ReferenceElement",
+      "undefined" : "Reference Element"
+    },
+    "subClasses" : [ "13", "14" ],
+    "comment" : {
+      "undefined" : "Abstract element for referencing individual road infrastructure elements. In most cases, elements of a road network are reference elements."
+    },
+    "id" : "12"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PositioningWithDistance",
+      "undefined" : "Positioning with Distance"
+    },
+    "subClasses" : [ "1", "15", "16" ],
+    "comment" : {
+      "undefined" : "describes the positioning of the road infrastructure element in relation to the reference element if the road infrastructure element has a distance to the reference element in the cross-section"
+    },
+    "id" : "2",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#LineLocalisation",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LineLocalisation",
+      "undefined" : "Line Localisation"
+    },
+    "comment" : {
+      "undefined" : "describes the position of the road infrastructure element to the reference element in the longitudinal direction by abstracting the infrastructure element as a line object"
+    },
+    "id" : "19",
+    "superClasses" : [ "20" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "21",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Road",
+      "en" : "Road"
+    },
+    "comment" : {
+      "undefined" : "Dataset containing data about roads or roadsections"
+    },
+    "id" : "22",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "23",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "StartPoint",
+      "undefined" : "Start Point"
+    },
+    "comment" : {
+      "undefined" : "describes the starting point of the road infrastructure element in relation to the reference element"
+    },
+    "id" : "24",
+    "superClasses" : [ "25" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "HorizontalPositioning",
+      "undefined" : "Horizontal Positioning"
+    },
+    "subClasses" : [ "6", "16" ],
+    "comment" : {
+      "undefined" : "describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the horizontal direction"
+    },
+    "id" : "27",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#real",
+    "baseIri" : "http://www.w3.org/2002/07/owl",
+    "id" : "31",
+    "label" : {
+      "IRI-based" : "real"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#real",
+    "baseIri" : "http://www.w3.org/2002/07/owl",
+    "id" : "9",
+    "label" : {
+      "IRI-based" : "real"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RoadInfrastructureElement",
+      "undefined" : "Roadinfrastructureelment"
+    },
+    "subClasses" : [ "32", "33", "34", "22", "35" ],
+    "comment" : {
+      "undefined" : "Element of the road infrastructure"
+    },
+    "id" : "11"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningNextTo",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "HorizontalPositioningNextTo",
+      "undefined" : "horizontal positioning next to"
+    },
+    "comment" : {
+      "undefined" : "describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the horizontal direction for road infrastructure elements that lie next to the reference element"
+    },
+    "id" : "16",
+    "superClasses" : [ "2", "27" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "EndPoint",
+      "undefined" : "End Point"
+    },
+    "comment" : {
+      "undefined" : "describes the end point of the road infrastructure element in relation to the reference element"
+    },
+    "id" : "38",
+    "superClasses" : [ "25" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Point",
+      "undefined" : "Point"
+    },
+    "subClasses" : [ "52", "38", "24" ],
+    "comment" : {
+      "undefined" : "describes a location on a linear reference element"
+    },
+    "id" : "25"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Equipment",
+      "en" : "Equipment"
+    },
+    "comment" : {
+      "undefined" : "A data set that contains data on a piece of equipment. Equipment elements can be, for example, signs, traffic lights or similar."
+    },
+    "id" : "35",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PointLocalisation",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PointLocalisation",
+      "undefined" : "Point Localisation"
+    },
+    "comment" : {
+      "undefined" : "describes the position of the road infrastructure element to the reference element in the longitudinal direction by abstracting the infrastructure element as a point object"
+    },
+    "id" : "51",
+    "superClasses" : [ "20" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MidPoint",
+      "undefined" : "Mid Point"
+    },
+    "comment" : {
+      "undefined" : "describes the center of the road infrastructure element in relation to the reference element"
+    },
+    "id" : "52",
+    "superClasses" : [ "25" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Line",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Line",
+      "en" : "Line"
+    },
+    "comment" : {
+      "undefined" : "Describes a linear reference element"
+    },
+    "id" : "13",
+    "superClasses" : [ "12" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AccidentElement",
+      "en" : "Accident"
+    },
+    "comment" : {
+      "undefined" : "Data set containing accident data"
+    },
+    "id" : "32",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Positioning",
+      "undefined" : "Positioning"
+    },
+    "subClasses" : [ "2", "4", "3", "27" ],
+    "comment" : {
+      "undefined" : "describes the position of the road infrastructure element in relation to the reference element in the transverse direction"
+    },
+    "id" : "5"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningUnder",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VerticalPositioningUnder",
+      "en" : "vertical positioning under"
+    },
+    "comment" : {
+      "undefined" : "describes the positioning of the road infrastructure element relative to the reference element in the cross-section in the vertical direction when the road infrastructure element is positioned under the reference element"
+    },
+    "id" : "15",
+    "superClasses" : [ "2", "3" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VerticalPositioning",
+      "undefined" : "Vertical Positioning"
+    },
+    "subClasses" : [ "1", "15", "7" ],
+    "comment" : {
+      "undefined" : "describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the vertical direction"
+    },
+    "id" : "3",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Polyline",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Polyline",
+      "en" : "Polyline"
+    },
+    "comment" : {
+      "undefined" : "Describes a linear reference element consisting of several line elements"
+    },
+    "id" : "14",
+    "superClasses" : [ "12" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningOn",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "HorizontalPositioningOn",
+      "undefined" : "horizontal positioning on"
+    },
+    "comment" : {
+      "undefined" : "describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the horizontal direction for road infrastructure elements that lie on the reference element"
+    },
+    "id" : "6",
+    "superClasses" : [ "4", "27" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#CountingPoint",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CountingPoint",
+      "en" : "Counting Point"
+    },
+    "comment" : {
+      "undefined" : "data set containing data from traffic counting points"
+    },
+    "id" : "33",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Localisation",
+      "undefined" : "Localisation"
+    },
+    "subClasses" : [ "19", "51" ],
+    "comment" : {
+      "undefined" : "describes the position of the road infrastructure element in relation to the reference element in the longitudinal direction"
+    },
+    "id" : "20"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Bridge",
+      "en" : "Bridge"
+    },
+    "comment" : {
+      "undefined" : "Dataset containing bridge data"
+    },
+    "id" : "34",
+    "superClasses" : [ "11" ]
+  } ],
+  "property" : [ {
+    "id" : "0",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "8",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "10",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "17",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "18",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "26",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "28",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "29",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "30",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "36",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "39",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "43",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "44",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "45",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "46",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "47",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "48",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "49",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "37",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "50",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "53",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "54",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "55",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "56",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "57",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "58",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "59",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "60",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "41",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "61",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "62",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "42",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "63",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "64",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "65",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "66",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "67",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "68",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "69",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "70",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "71",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "72",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "73",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "74",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "75",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "76",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "40",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "77",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "78",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "79",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "80",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "81",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "82",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "83",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "84",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "85",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "86",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "87",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "88",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "89",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "90",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "91",
+    "type" : "rdfs:SubClassOf"
+  } ],
+  "propertyAttribute" : [ {
+    "range" : "2",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "0"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasDistance",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "hasDistance"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "Describes the distance between the road infrastructure element and the reference element in the cross section"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "8"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#referencedBy",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "referencedBy",
+      "undefined" : "referenced by"
+    },
+    "domain" : "11",
+    "attributes" : [ "object" ],
+    "id" : "10"
+  }, {
+    "range" : "12",
+    "domain" : "14",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "17"
+  }, {
+    "range" : "12",
+    "domain" : "13",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "18"
+  }, {
+    "range" : "4",
+    "domain" : "7",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "26"
+  }, {
+    "range" : "4",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "28"
+  }, {
+    "range" : "15",
+    "domain" : "7",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "29"
+  }, {
+    "range" : "15",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "30"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith",
+    "inverse" : "37",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "range" : "20",
+    "label" : {
+      "IRI-based" : "isLocatedWith"
+    },
+    "domain" : "11",
+    "attributes" : [ "asymmetric", "functional", "object" ],
+    "id" : "36"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "range" : "25",
+    "label" : {
+      "IRI-based" : "isLocatedAt"
+    },
+    "domain" : "20",
+    "subproperty" : [ "40", "41", "42" ],
+    "attributes" : [ "object" ],
+    "id" : "39"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#positionedBy",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "positionedBy"
+    },
+    "domain" : "11",
+    "attributes" : [ "object" ],
+    "id" : "43"
+  }, {
+    "range" : "11",
+    "domain" : "12",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "44"
+  }, {
+    "range" : "4",
+    "domain" : "2",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "45"
+  }, {
+    "range" : "7",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "46"
+  }, {
+    "range" : "6",
+    "domain" : "16",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "47"
+  }, {
+    "range" : "3",
+    "domain" : "27",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "48"
+  }, {
+    "range" : "5",
+    "domain" : "20",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "49"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#locates",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "range" : "11",
+    "label" : {
+      "IRI-based" : "locates"
+    },
+    "domain" : "20",
+    "attributes" : [ "asymmetric", "functional", "object" ],
+    "id" : "37"
+  }, {
+    "range" : "51",
+    "domain" : "19",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "50"
+  }, {
+    "range" : "52",
+    "domain" : "38",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "53"
+  }, {
+    "range" : "24",
+    "domain" : "52",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "54"
+  }, {
+    "range" : "24",
+    "domain" : "38",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "55"
+  }, {
+    "range" : "20",
+    "domain" : "19",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "56"
+  }, {
+    "range" : "20",
+    "domain" : "51",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "57"
+  }, {
+    "range" : "35",
+    "domain" : "32",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "58"
+  }, {
+    "range" : "22",
+    "domain" : "32",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "59"
+  }, {
+    "range" : "33",
+    "domain" : "34",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "60"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtMidpoint",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "range" : "52",
+    "label" : {
+      "IRI-based" : "isLocatedAtMidpoint"
+    },
+    "superproperty" : [ "39" ],
+    "domain" : "51",
+    "attributes" : [ "functional", "object" ],
+    "id" : "41"
+  }, {
+    "range" : "35",
+    "domain" : "34",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "61"
+  }, {
+    "range" : "22",
+    "domain" : "34",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "62"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtStartpoint",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "isLocatedAtStartpoint"
+    },
+    "superproperty" : [ "39" ],
+    "domain" : "19",
+    "attributes" : [ "functional", "object" ],
+    "id" : "42"
+  }, {
+    "range" : "35",
+    "domain" : "33",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "63"
+  }, {
+    "range" : "22",
+    "domain" : "33",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "64"
+  }, {
+    "range" : "22",
+    "domain" : "35",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "65"
+  }, {
+    "range" : "34",
+    "domain" : "32",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "66"
+  }, {
+    "range" : "33",
+    "domain" : "32",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "67"
+  }, {
+    "range" : "3",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "68"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#pointsOn",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "pointsOn"
+    },
+    "domain" : "25",
+    "attributes" : [ "functional", "object" ],
+    "id" : "69"
+  }, {
+    "range" : "5",
+    "domain" : "27",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "70"
+  }, {
+    "range" : "3",
+    "domain" : "7",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "71"
+  }, {
+    "range" : "3",
+    "domain" : "15",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "72"
+  }, {
+    "range" : "5",
+    "domain" : "2",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "73"
+  }, {
+    "range" : "25",
+    "domain" : "24",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "74"
+  }, {
+    "range" : "5",
+    "domain" : "3",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "75"
+  }, {
+    "range" : "5",
+    "domain" : "4",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "76"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtEndpoint",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "range" : "38",
+    "label" : {
+      "IRI-based" : "isLocatedAtEndpoint"
+    },
+    "superproperty" : [ "39" ],
+    "domain" : "19",
+    "attributes" : [ "functional", "object" ],
+    "id" : "40"
+  }, {
+    "range" : "25",
+    "domain" : "38",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "77"
+  }, {
+    "range" : "25",
+    "domain" : "52",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "78"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "isPositionedWith"
+    },
+    "domain" : "20",
+    "attributes" : [ "object" ],
+    "id" : "79"
+  }, {
+    "range" : "11",
+    "domain" : "35",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "80"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#topDataProperty",
+    "baseIri" : "http://www.w3.org/2002/07/owl",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "topDataProperty"
+    },
+    "domain" : "23",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "81"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#consistsOf",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "consistsOf"
+    },
+    "domain" : "14",
+    "attributes" : [ "object" ],
+    "id" : "82"
+  }, {
+    "range" : "11",
+    "domain" : "33",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "83"
+  }, {
+    "range" : "11",
+    "domain" : "32",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "84"
+  }, {
+    "range" : "11",
+    "domain" : "22",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "85"
+  }, {
+    "range" : "11",
+    "domain" : "34",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "86"
+  }, {
+    "range" : "2",
+    "domain" : "16",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "87"
+  }, {
+    "range" : "2",
+    "domain" : "15",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "88"
+  }, {
+    "iri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasStation",
+    "baseIri" : "http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem",
+    "range" : "31",
+    "label" : {
+      "IRI-based" : "hasStation"
+    },
+    "domain" : "25",
+    "comment" : {
+      "undefined" : "Describes the location on a linear reference element via the distance to the start of the linear reference element"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "89"
+  }, {
+    "range" : "27",
+    "domain" : "16",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "90"
+  }, {
+    "range" : "27",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "91"
+  } ]
+}

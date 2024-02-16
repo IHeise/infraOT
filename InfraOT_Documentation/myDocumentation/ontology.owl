@@ -1,0 +1,603 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#"
+     xml:base="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem">
+        <rdfs:comment xml:lang="en">Captures spatial relatioships in a roadinfrastructure system</rdfs:comment>
+        <rdfs:label xml:lang="en">Road Infrastructure Ontology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#consistsOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#consistsOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Polyline"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Line"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtEndpoint -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtEndpoint">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#LineLocalisation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtMidpoint -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtMidpoint">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PointLocalisation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtStartpoint -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtStartpoint">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#LineLocalisation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#locates"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#locates -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#locates">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#pointsOn -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#pointsOn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#positionedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#positionedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#referencedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#referencedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#pointsOn"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label>referenced by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasDistance -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasDistance">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#real"/>
+        <rdfs:comment>Describes the distance between the road infrastructure element and the reference element in the cross section</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasStation -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasStation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#real"/>
+        <rdfs:comment>Describes the location on a linear reference element via the distance to the start of the linear reference element</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement"/>
+        <rdfs:comment>data set containing accident data</rdfs:comment>
+        <rdfs:label xml:lang="en">Accident</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement"/>
+        <rdfs:comment>data set containing bridge data</rdfs:comment>
+        <rdfs:label xml:lang="en">Bridge</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#CountingPoint -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#CountingPoint">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement"/>
+        <rdfs:comment>data set containing data from traffic counting points</rdfs:comment>
+        <rdfs:label xml:lang="en">Counting Point</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point"/>
+        <rdfs:comment>describes the end point of the road infrastructure element in relation to the reference element</rdfs:comment>
+        <rdfs:label>End Point</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement"/>
+        <rdfs:comment>data set that contains data on a piece of equipment. Equipment elements can be, for example, signs, traffic lights or similar.</rdfs:comment>
+        <rdfs:label xml:lang="en">Equipment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning"/>
+        <rdfs:comment>describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the horizontal direction</rdfs:comment>
+        <rdfs:label>Horizontal Positioning</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningNextTo -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningNextTo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningOn"/>
+        <rdfs:comment>describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the horizontal direction for road infrastructure elements that lie next to the reference element</rdfs:comment>
+        <rdfs:label>horizontal positioning next to</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningOn -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningOn">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance"/>
+        <rdfs:comment>describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the horizontal direction for road infrastructure elements that lie on the reference element</rdfs:comment>
+        <rdfs:label>horizontal positioning on</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Line -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Line">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement"/>
+        <rdfs:comment>describes a linear, directional reference element</rdfs:comment>
+        <rdfs:label xml:lang="en">Line</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#LineLocalisation -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#LineLocalisation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtEndpoint"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtStartpoint"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PointLocalisation"/>
+        <rdfs:comment>describes the position of the road infrastructure element to the reference element in the longitudinal direction by abstracting the infrastructure element as a line object</rdfs:comment>
+        <rdfs:label>Line Localisation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning"/>
+        <rdfs:comment>describes the position of the road infrastructure element in relation to the reference element in the longitudinal direction</rdfs:comment>
+        <rdfs:label>Localisation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point"/>
+        <rdfs:comment>describes the center of the road infrastructure element in relation to the reference element</rdfs:comment>
+        <rdfs:label>Mid Point</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#locates"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#pointsOn"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment>describes a location on a linear reference element</rdfs:comment>
+        <rdfs:label>Point</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PointLocalisation -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PointLocalisation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtMidpoint"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation"/>
+        <rdfs:comment>describes the position of the road infrastructure element to the reference element in the longitudinal direction by abstracting the infrastructure element as a point object</rdfs:comment>
+        <rdfs:label>Point Localisation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Polyline -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Polyline">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement"/>
+        <rdfs:comment>describes a linear reference element consisting of several line elements</rdfs:comment>
+        <rdfs:label xml:lang="en">Polyline</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning">
+        <rdfs:comment>describes the position of the road infrastructure element in relation to the reference element in the transverse direction</rdfs:comment>
+        <rdfs:label>Positioning</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance"/>
+        <rdfs:comment>describes the positioning of the road infrastructure element in relation to the reference element if the road infrastructure element has a distance to the reference element in the cross-section</rdfs:comment>
+        <rdfs:label>Positioning with Distance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning"/>
+        <rdfs:comment>describes the positioning of the road infrastructure element in relation to the reference element if the road infrastructure element has no distance to the reference element in the cross-section</rdfs:comment>
+        <rdfs:label>Positioning without distance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement"/>
+        <rdfs:comment>Abstract element for referencing individual road infrastructure elements. In most cases, elements of a road network are reference elements.</rdfs:comment>
+        <rdfs:label>Reference Element</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement"/>
+        <rdfs:comment>data set containing data about roads or roadsections</rdfs:comment>
+        <rdfs:label xml:lang="en">Road</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement">
+        <rdfs:comment>Element of the road infrastructure</rdfs:comment>
+        <rdfs:label>Roadinfrastructureelment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point"/>
+        <rdfs:comment>describes the starting point of the road infrastructure element in relation to the reference element</rdfs:comment>
+        <rdfs:label>Start Point</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning"/>
+        <rdfs:comment>describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the vertical direction</rdfs:comment>
+        <rdfs:label>Vertical Positioning</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningAbove -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningAbove">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning"/>
+        <rdfs:comment>describes the positioning of the road infrastructure element relative to the reference element in the cross-section in the vertical direction when the road infrastructure element is positioned above the reference element</rdfs:comment>
+        <rdfs:label>vertical positioning above</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningOn -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningOn">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning"/>
+        <rdfs:comment>describes the positioning of the road infrastructure element relative to the reference element in the cross-section in the vertical direction when the road infrastructure element is positioned on the reference element</rdfs:comment>
+        <rdfs:label xml:lang="en">vertical positioning on</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningUnder -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningUnder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning"/>
+        <rdfs:comment>describes the positioning of the road infrastructure element relative to the reference element in the cross-section in the vertical direction when the road infrastructure element is positioned under the reference element</rdfs:comment>
+        <rdfs:label xml:lang="en">vertical positioning under</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#CountingPoint"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningAbove"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningOn"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningUnder"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtEndpoint"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtMidpoint"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtStartpoint"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

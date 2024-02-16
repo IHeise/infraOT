@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+ <link rel="stylesheet" href="resources/primer.css" media="screen" />    <link rel="stylesheet" href="resources/rec.css" media="screen" />    <link rel="stylesheet" href="resources/extra.css" media="screen" />    <link rel="stylesheet" href="resources/owl.css" media="screen" />    <title>Road infrastructre Ontology</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem","name":"Road infrastructre Ontology", "headline":"This ontology enables the description of spatial relationships in a road infrastructure system. For this purpose, the spatial relationships of road infrastructure elements to a reference element are explicitly recorded. The explicit recording of the relationship of several road infrastructure elements to the same reference element then implicitly contains the relationship of the road infrastructure elements to each other, which can then be analysed depending on the usecase.", "dateReleased":"15.02.2024", "license":"null"}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Road infrastructre Ontology</h1>
+<h2>Release: 15.02.2024</h2>
+
+
+<dl>
+<dt>This version:</dt>
+<dd><a href="null">null</a></dd>
+<dt>Latest version:</dt>
+<dd><a href="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem">http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem</a></dd>
+<dt>Issued on:</dt>
+<dd>Date issued</dd>
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="null" target="_blank"><img src="https://img.shields.io/badge/License-null-blue.svg" alt="null" /></a>
+<a href="null" rel="license" target="_blank">
+<img src="null" style="border-width:0" alt="License" />
+</a>
+<br/></dd><dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd></dl>
+
+<hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+This ontology enables the description of spatial relationships in a road infrastructure system. For this purpose, the spatial relationships of road infrastructure elements to a reference element are explicitly recorded. The explicit recording of the relationship of several road infrastructure elements to the same reference element then implicitly contains the relationship of the road infrastructure elements to each other, which can then be analysed depending on the usecase.</span>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">Road infrastructure is a highly complex system whose functionality is of central importance to society. Due to its complexity, the operation and maintenance of this system can benefit greatly from using a digital representation of the actual system, including its current condition by means of a digital twin. The challenge in designing such a digital twin lies in representing the road infrastructure as an abstract system of systems. Several ontologies already describe the individual subsystems and the aspects relevant to their operation. However, operating a road infrastructure system requires the separate consideration of the subsystems and the relationships between the individual subsystems. This ontology deals with the formalisation of these relationships, emphasising spatiality. The simplicity approach is followed, in which only the spatial relationship of the subsystems to each other is described. The result is an easy-to-use and maintain ontology that fills the gap of considering the road infrastructure system without redefining concepts already defined in other ontologies.</span>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">Infra Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#AccidentElement"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement">Accident</a>
+   </li>
+   <li>
+      <a href="#Bridge"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge">Bridge</a>
+   </li>
+   <li>
+      <a href="#CountingPoint"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#CountingPoint">Counting Point</a>
+   </li>
+   <li>
+      <a href="#EndPoint"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint">End Point</a>
+   </li>
+   <li>
+      <a href="#Equipment"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment">Equipment</a>
+   </li>
+   <li>
+      <a href="#HorizontalPositioning"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning">Horizontal Positioning</a>
+   </li>
+   <li>
+      <a href="#HorizontalPositioningNextTo"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningNextTo">horizontal positioning next to</a>
+   </li>
+   <li>
+      <a href="#HorizontalPositioningOn"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningOn">horizontal positioning on</a>
+   </li>
+   <li>
+      <a href="#Line"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Line">Line</a>
+   </li>
+   <li>
+      <a href="#LineLocalisation"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#LineLocalisation">Line Localisation</a>
+   </li>
+   <li>
+      <a href="#Localisation"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation">Localisation</a>
+   </li>
+   <li>
+      <a href="#MidPoint"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint">Mid Point</a>
+   </li>
+   <li>
+      <a href="#Point"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point">Point</a>
+   </li>
+   <li>
+      <a href="#PointLocalisation"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PointLocalisation">Point Localisation</a>
+   </li>
+   <li>
+      <a href="#Polyline"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Polyline">Polyline</a>
+   </li>
+   <li>
+      <a href="#Positioning"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning">Positioning</a>
+   </li>
+   <li>
+      <a href="#PositioningWithDistance"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance">Positioning with Distance</a>
+   </li>
+   <li>
+      <a href="#PositioningWithoutDistance"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance">Positioning without distance</a>
+   </li>
+   <li>
+      <a href="#ReferenceElement"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement">Reference Element</a>
+   </li>
+   <li>
+      <a href="#Road"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road">Road</a>
+   </li>
+   <li>
+      <a href="#RoadInfrastructureElement"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement">Roadinfrastructureelment</a>
+   </li>
+   <li>
+      <a href="#StartPoint"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint">Start Point</a>
+   </li>
+   <li>
+      <a href="#VerticalPositioning"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning">Vertical Positioning</a>
+   </li>
+   <li>
+      <a href="#VerticalPositioningAbove"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningAbove">vertical positioning above</a>
+   </li>
+   <li>
+      <a href="#VerticalPositioningOn"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningOn">vertical positioning on</a>
+   </li>
+   <li>
+      <a href="#VerticalPositioningUnder"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningUnder">vertical positioning under</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#consistsOf"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#consistsOf">
+         <span>consists of</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isLocatedAt"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt">
+         <span>is located at</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isLocatedAtEndpoint"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtEndpoint">
+         <span>is located at endpoint</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isLocatedAtMidpoint"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtMidpoint">
+         <span>is located at midpoint</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isLocatedAtStartpoint"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtStartpoint">
+         <span>is located at startpoint</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isLocatedWith"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith">
+         <span>is located with</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isPositionedWith"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith">
+         <span>is positioned with</span>
+      </a>
+   </li>
+   <li>
+      <a href="#locates"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#locates">
+         <span>locates</span>
+      </a>
+   </li>
+   <li>
+      <a href="#pointsOn"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#pointsOn">
+         <span>points on</span>
+      </a>
+   </li>
+   <li>
+      <a href="#positionedBy"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#positionedBy">
+         <span>positioned by</span>
+      </a>
+   </li>
+   <li>
+      <a href="#referencedBy"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#referencedBy">referenced by</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#hasDistance"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasDistance">
+         <span>has distance</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasStation"
+         title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasStation">
+         <span>has station</span>
+      </a>
+   </li>
+</ul>
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">Infra Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">Captures spatial relatioships in a roadinfrastructure system</span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for Infra Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Infra Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     id="classes">
+   <h3 id="classes-headline" class="list">Classes</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#AccidentElement"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement">Accident</a>
+      </li>
+      <li>
+         <a href="#Bridge"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge">Bridge</a>
+      </li>
+      <li>
+         <a href="#CountingPoint"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#CountingPoint">Counting Point</a>
+      </li>
+      <li>
+         <a href="#EndPoint"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint">End Point</a>
+      </li>
+      <li>
+         <a href="#Equipment"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment">Equipment</a>
+      </li>
+      <li>
+         <a href="#HorizontalPositioning"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning">Horizontal Positioning</a>
+      </li>
+      <li>
+         <a href="#HorizontalPositioningNextTo"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningNextTo">horizontal positioning next to</a>
+      </li>
+      <li>
+         <a href="#HorizontalPositioningOn"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningOn">horizontal positioning on</a>
+      </li>
+      <li>
+         <a href="#Line"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Line">Line</a>
+      </li>
+      <li>
+         <a href="#LineLocalisation"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#LineLocalisation">Line Localisation</a>
+      </li>
+      <li>
+         <a href="#Localisation"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation">Localisation</a>
+      </li>
+      <li>
+         <a href="#MidPoint"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint">Mid Point</a>
+      </li>
+      <li>
+         <a href="#Point"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point">Point</a>
+      </li>
+      <li>
+         <a href="#PointLocalisation"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PointLocalisation">Point Localisation</a>
+      </li>
+      <li>
+         <a href="#Polyline"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Polyline">Polyline</a>
+      </li>
+      <li>
+         <a href="#Positioning"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning">Positioning</a>
+      </li>
+      <li>
+         <a href="#PositioningWithDistance"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance">Positioning with Distance</a>
+      </li>
+      <li>
+         <a href="#PositioningWithoutDistance"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance">Positioning without distance</a>
+      </li>
+      <li>
+         <a href="#ReferenceElement"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement">Reference Element</a>
+      </li>
+      <li>
+         <a href="#Road"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road">Road</a>
+      </li>
+      <li>
+         <a href="#RoadInfrastructureElement"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement">Roadinfrastructureelment</a>
+      </li>
+      <li>
+         <a href="#StartPoint"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint">Start Point</a>
+      </li>
+      <li>
+         <a href="#VerticalPositioning"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning">Vertical Positioning</a>
+      </li>
+      <li>
+         <a href="#VerticalPositioningAbove"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningAbove">vertical positioning above</a>
+      </li>
+      <li>
+         <a href="#VerticalPositioningOn"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningOn">vertical positioning on</a>
+      </li>
+      <li>
+         <a href="#VerticalPositioningUnder"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningUnder">vertical positioning under</a>
+      </li>
+   </ul>
+   <div class="entity" id="AccidentElement">
+      <h3>Accident<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement</p>
+      <div class="comment">
+         <span class="markdown">data set containing accident data</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#RoadInfrastructureElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement">Roadinfrastructureelment</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#Bridge"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge">Bridge</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#CountingPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#CountingPoint">Counting Point</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Equipment"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment">Equipment</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Road"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road">Road</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Bridge">
+      <h3>Bridge<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge</p>
+      <div class="comment">
+         <span class="markdown">data set containing bridge data</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#RoadInfrastructureElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement">Roadinfrastructureelment</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AccidentElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement">Accident</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#CountingPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#CountingPoint">Counting Point</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Equipment"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment">Equipment</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Road"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road">Road</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="CountingPoint">
+      <h3>Counting Point<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#CountingPoint</p>
+      <div class="comment">
+         <span class="markdown">data set containing data from traffic counting points</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#RoadInfrastructureElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement">Roadinfrastructureelment</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AccidentElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement">Accident</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Bridge"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge">Bridge</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Equipment"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment">Equipment</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Road"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road">Road</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="EndPoint">
+      <h3>End Point<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint</p>
+      <div class="comment">
+         <span class="markdown">describes the end point of the road infrastructure element in relation to the reference element</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Point"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point">Point</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#isLocatedAtEndpoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtEndpoint">is located at endpoint</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#MidPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint">Mid Point</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#StartPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint">Start Point</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Equipment">
+      <h3>Equipment<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment</p>
+      <div class="comment">
+         <span class="markdown">data set that contains data on a piece of equipment. Equipment elements can be, for example, signs, traffic lights or similar.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#RoadInfrastructureElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement">Roadinfrastructureelment</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AccidentElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement">Accident</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Bridge"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge">Bridge</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#CountingPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#CountingPoint">Counting Point</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Road"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road">Road</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="HorizontalPositioning">
+      <h3>Horizontal Positioning<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning</p>
+      <div class="comment">
+         <span class="markdown">describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the horizontal direction</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Positioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning">Positioning</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#HorizontalPositioningNextTo"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningNextTo">horizontal positioning next to</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#HorizontalPositioningOn"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningOn">horizontal positioning on</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#VerticalPositioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning">Vertical Positioning</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="HorizontalPositioningNextTo">
+      <h3>horizontal positioning next to<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningNextTo</p>
+      <div class="comment">
+         <span class="markdown">describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the horizontal direction for road infrastructure elements that lie next to the reference element</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#HorizontalPositioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning">Horizontal Positioning</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#PositioningWithDistance"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance">Positioning with Distance</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#HorizontalPositioningOn"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningOn">horizontal positioning on</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="HorizontalPositioningOn">
+      <h3>horizontal positioning on<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningOn</p>
+      <div class="comment">
+         <span class="markdown">describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the horizontal direction for road infrastructure elements that lie on the reference element</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#HorizontalPositioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning">Horizontal Positioning</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#PositioningWithoutDistance"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance">Positioning without distance</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#HorizontalPositioningNextTo"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningNextTo">horizontal positioning next to</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Line">
+      <h3>Line<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Line</p>
+      <div class="comment">
+         <span class="markdown">describes a linear, directional reference element</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#ReferenceElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement">Reference Element</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#consistsOf"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#consistsOf">consists of</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="LineLocalisation">
+      <h3>Line Localisation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#LineLocalisation</p>
+      <div class="comment">
+         <span class="markdown">describes the position of the road infrastructure element to the reference element in the longitudinal direction by abstracting the infrastructure element as a line object</span>
+      </div>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>(<a href="#isLocatedAtEndpoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtEndpoint">is located at endpoint</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">exactly</span> 1 <a href="#EndPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint">End Point</a>
+            <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#isLocatedAtStartpoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtStartpoint">is located at startpoint</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">exactly</span> 1 <a href="#StartPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint">Start Point</a>
+            <sup class="type-c" title="class">c</sup>)</dd>
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Localisation"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation">Localisation</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#isLocatedAtEndpoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtEndpoint">is located at endpoint</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isLocatedAtStartpoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtStartpoint">is located at startpoint</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#PointLocalisation"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PointLocalisation">Point Localisation</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Localisation">
+      <h3>Localisation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation</p>
+      <div class="comment">
+         <span class="markdown">describes the position of the road infrastructure element in relation to the reference element in the longitudinal direction</span>
+      </div>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>(<a href="#isPositionedWith"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith">is positioned with</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">exactly</span> 1 <a href="#HorizontalPositioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning">Horizontal Positioning</a>
+            <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#isPositionedWith"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith">is positioned with</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">exactly</span> 1 <a href="#VerticalPositioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning">Vertical Positioning</a>
+            <sup class="type-c" title="class">c</sup>)</dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#LineLocalisation"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#LineLocalisation">Line Localisation</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#PointLocalisation"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PointLocalisation">Point Localisation</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#isLocatedAt"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt">is located at</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isPositionedWith"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith">is positioned with</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#locates"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#locates">locates</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#isLocatedWith"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith">is located with</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#Positioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning">Positioning</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="MidPoint">
+      <h3>Mid Point<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint</p>
+      <div class="comment">
+         <span class="markdown">describes the center of the road infrastructure element in relation to the reference element</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Point"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point">Point</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#isLocatedAtMidpoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtMidpoint">is located at midpoint</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#EndPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint">End Point</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#StartPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint">Start Point</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Point">
+      <h3>Point<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point</p>
+      <div class="comment">
+         <span class="markdown">describes a location on a linear reference element</span>
+      </div>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>(<a href="#locates"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#locates">locates</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">exactly</span> 1 <a href="#Localisation"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation">Localisation</a>
+            <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#pointsOn"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#pointsOn">points on</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">exactly</span> 1 <a href="#ReferenceElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement">Reference Element</a>
+            <sup class="type-c" title="class">c</sup>)</dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#EndPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint">End Point</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#MidPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint">Mid Point</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#StartPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint">Start Point</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#hasStation"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasStation">has station</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#pointsOn"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#pointsOn">points on</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#isLocatedAt"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt">is located at</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="PointLocalisation">
+      <h3>Point Localisation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PointLocalisation</p>
+      <div class="comment">
+         <span class="markdown">describes the position of the road infrastructure element to the reference element in the longitudinal direction by abstracting the infrastructure element as a point object</span>
+      </div>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>
+            <a href="#isLocatedAtMidpoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtMidpoint">is located at midpoint</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">exactly</span> 1 <a href="#MidPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint">Mid Point</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Localisation"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation">Localisation</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#isLocatedAtMidpoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtMidpoint">is located at midpoint</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#LineLocalisation"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#LineLocalisation">Line Localisation</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Polyline">
+      <h3>Polyline<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Polyline</p>
+      <div class="comment">
+         <span class="markdown">describes a linear reference element consisting of several line elements</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#ReferenceElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement">Reference Element</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#consistsOf"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#consistsOf">consists of</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Positioning">
+      <h3>Positioning<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning</p>
+      <div class="comment">
+         <span class="markdown">describes the position of the road infrastructure element in relation to the reference element in the transverse direction</span>
+      </div>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#HorizontalPositioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning">Horizontal Positioning</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#PositioningWithDistance"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance">Positioning with Distance</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#PositioningWithoutDistance"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance">Positioning without distance</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#VerticalPositioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning">Vertical Positioning</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#isPositionedWith"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith">is positioned with</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#positionedBy"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#positionedBy">positioned by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#Localisation"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation">Localisation</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="PositioningWithDistance">
+      <h3>Positioning with Distance<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance</p>
+      <div class="comment">
+         <span class="markdown">describes the positioning of the road infrastructure element in relation to the reference element if the road infrastructure element has a distance to the reference element in the cross-section</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Positioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning">Positioning</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#HorizontalPositioningNextTo"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningNextTo">horizontal positioning next to</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#VerticalPositioningAbove"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningAbove">vertical positioning above</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#VerticalPositioningUnder"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningUnder">vertical positioning under</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#hasDistance"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasDistance">has distance</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#PositioningWithoutDistance"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance">Positioning without distance</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="PositioningWithoutDistance">
+      <h3>Positioning without distance<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance</p>
+      <div class="comment">
+         <span class="markdown">describes the positioning of the road infrastructure element in relation to the reference element if the road infrastructure element has no distance to the reference element in the cross-section</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Positioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning">Positioning</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#HorizontalPositioningOn"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioningOn">horizontal positioning on</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#VerticalPositioningOn"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningOn">vertical positioning on</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#PositioningWithDistance"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance">Positioning with Distance</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="ReferenceElement">
+      <h3>Reference Element<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement</p>
+      <div class="comment">
+         <span class="markdown">Abstract element for referencing individual road infrastructure elements. In most cases, elements of a road network are reference elements.</span>
+      </div>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#Line"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Line">Line</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Polyline"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Polyline">Polyline</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#pointsOn"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#pointsOn">points on</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#referencedBy"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#referencedBy">referenced by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#RoadInfrastructureElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement">Roadinfrastructureelment</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Road">
+      <h3>Road<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road</p>
+      <div class="comment">
+         <span class="markdown">data set containing data about roads or roadsections</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#RoadInfrastructureElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement">Roadinfrastructureelment</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AccidentElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement">Accident</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Bridge"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge">Bridge</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#CountingPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#CountingPoint">Counting Point</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Equipment"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment">Equipment</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="RoadInfrastructureElement">
+      <h3>Roadinfrastructureelment<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement</p>
+      <div class="comment">
+         <span class="markdown">Element of the road infrastructure</span>
+      </div>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#AccidentElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement">Accident</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Bridge"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge">Bridge</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#CountingPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#CountingPoint">Counting Point</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Equipment"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment">Equipment</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Road"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road">Road</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#isLocatedWith"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith">is located with</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#positionedBy"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#positionedBy">positioned by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#referencedBy"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#referencedBy">referenced by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#locates"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#locates">locates</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#ReferenceElement"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement">Reference Element</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="StartPoint">
+      <h3>Start Point<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint</p>
+      <div class="comment">
+         <span class="markdown">describes the starting point of the road infrastructure element in relation to the reference element</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Point"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point">Point</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#isLocatedAtStartpoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtStartpoint">is located at startpoint</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#EndPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint">End Point</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#MidPoint"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint">Mid Point</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="VerticalPositioning">
+      <h3>Vertical Positioning<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning</p>
+      <div class="comment">
+         <span class="markdown">describes the positioning of the road infrastructure element in relation to the reference element in the cross-section in the vertical direction</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Positioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning">Positioning</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#VerticalPositioningAbove"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningAbove">vertical positioning above</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#VerticalPositioningOn"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningOn">vertical positioning on</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#VerticalPositioningUnder"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningUnder">vertical positioning under</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#HorizontalPositioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#HorizontalPositioning">Horizontal Positioning</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="VerticalPositioningAbove">
+      <h3>vertical positioning above<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningAbove</p>
+      <div class="comment">
+         <span class="markdown">describes the positioning of the road infrastructure element relative to the reference element in the cross-section in the vertical direction when the road infrastructure element is positioned above the reference element</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#PositioningWithDistance"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance">Positioning with Distance</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#VerticalPositioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning">Vertical Positioning</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#VerticalPositioningOn"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningOn">vertical positioning on</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#VerticalPositioningUnder"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningUnder">vertical positioning under</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="VerticalPositioningOn">
+      <h3>vertical positioning on<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningOn</p>
+      <div class="comment">
+         <span class="markdown">describes the positioning of the road infrastructure element relative to the reference element in the cross-section in the vertical direction when the road infrastructure element is positioned on the reference element</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#PositioningWithoutDistance"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithoutDistance">Positioning without distance</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#VerticalPositioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning">Vertical Positioning</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#VerticalPositioningAbove"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningAbove">vertical positioning above</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#VerticalPositioningUnder"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningUnder">vertical positioning under</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="VerticalPositioningUnder">
+      <h3>vertical positioning under<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningUnder</p>
+      <div class="comment">
+         <span class="markdown">describes the positioning of the road infrastructure element relative to the reference element in the cross-section in the vertical direction when the road infrastructure element is positioned under the reference element</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#PositioningWithDistance"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance">Positioning with Distance</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#VerticalPositioning"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioning">Vertical Positioning</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#VerticalPositioningAbove"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningAbove">vertical positioning above</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#VerticalPositioningOn"
+               title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#VerticalPositioningOn">vertical positioning on</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     id="objectproperties">
+   <h3 id="properties" class="list">Object Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#consistsOf"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#consistsOf">
+            <span>consists of</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isLocatedAt"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt">
+            <span>is located at</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isLocatedAtEndpoint"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtEndpoint">
+            <span>is located at endpoint</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isLocatedAtMidpoint"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtMidpoint">
+            <span>is located at midpoint</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isLocatedAtStartpoint"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtStartpoint">
+            <span>is located at startpoint</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isLocatedWith"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith">
+            <span>is located with</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isPositionedWith"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith">
+            <span>is positioned with</span>
+         </a>
+      </li>
+      <li>
+         <a href="#locates"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#locates">
+            <span>locates</span>
+         </a>
+      </li>
+      <li>
+         <a href="#pointsOn"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#pointsOn">
+            <span>points on</span>
+         </a>
+      </li>
+      <li>
+         <a href="#positionedBy"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#positionedBy">
+            <span>positioned by</span>
+         </a>
+      </li>
+      <li>
+         <a href="#referencedBy"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#referencedBy">referenced by</a>
+      </li>
+   </ul>
+   <div class="entity" id="consistsOf">
+      <h3>consists of<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#consistsOf</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Polyline"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Polyline">Polyline</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Line"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Line">Line</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isLocatedAt">
+      <h3>is located at<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt</p>
+      <div class="description">
+         <dl>
+            <dt>has sub-properties</dt>
+            <dd>
+               <a href="#isLocatedAtEndpoint"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtEndpoint">is located at endpoint</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#isLocatedAtMidpoint"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtMidpoint">is located at midpoint</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#isLocatedAtStartpoint"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtStartpoint">is located at startpoint</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Localisation"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation">Localisation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Point"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point">Point</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isLocatedAtEndpoint">
+      <h3>is located at endpoint<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtEndpoint</p>
+      <div class="description">
+         <p>
+            <strong>has characteristics:
+                </strong> functional</p>
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#isLocatedAt"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt">is located at</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#LineLocalisation"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#LineLocalisation">Line Localisation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#EndPoint"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#EndPoint">End Point</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isLocatedAtMidpoint">
+      <h3>is located at midpoint<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtMidpoint</p>
+      <div class="description">
+         <p>
+            <strong>has characteristics:
+                </strong> functional</p>
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#isLocatedAt"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt">is located at</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#PointLocalisation"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PointLocalisation">Point Localisation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#MidPoint"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#MidPoint">Mid Point</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isLocatedAtStartpoint">
+      <h3>is located at startpoint<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAtStartpoint</p>
+      <div class="description">
+         <p>
+            <strong>has characteristics:
+                </strong> functional</p>
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#isLocatedAt"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt">is located at</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#LineLocalisation"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#LineLocalisation">Line Localisation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#StartPoint"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#StartPoint">Start Point</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isLocatedWith">
+      <h3>is located with<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith</p>
+      <div class="description">
+         <p>
+            <strong>has characteristics:
+                </strong> functional, asymmetric</p>
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#RoadInfrastructureElement"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement">Roadinfrastructureelment</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Localisation"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation">Localisation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#locates"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#locates">locates</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isPositionedWith">
+      <h3>is positioned with<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Localisation"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation">Localisation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Positioning"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning">Positioning</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="locates">
+      <h3>locates<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#locates</p>
+      <div class="description">
+         <p>
+            <strong>has characteristics:
+                </strong> functional, asymmetric</p>
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Localisation"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Localisation">Localisation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#RoadInfrastructureElement"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement">Roadinfrastructureelment</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isLocatedWith"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith">is located with</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="pointsOn">
+      <h3>points on<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#pointsOn</p>
+      <div class="description">
+         <p>
+            <strong>has characteristics:
+                </strong> functional</p>
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Point"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point">Point</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#ReferenceElement"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement">Reference Element</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="positionedBy">
+      <h3>positioned by<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#positionedBy</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#RoadInfrastructureElement"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement">Roadinfrastructureelment</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Positioning"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning">Positioning</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has sub-property chains</dt>
+            <dd>
+               <a href="#isLocatedWith"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith">is located with</a>
+               <sup class="type-op" title="object property">op</sup> 
+               <span class="logic">o</span> 
+               <a href="#isPositionedWith"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isPositionedWith">is positioned with</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="referencedBy">
+      <h3>referenced by<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#referencedBy</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#RoadInfrastructureElement"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#RoadInfrastructureElement">Roadinfrastructureelment</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#ReferenceElement"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#ReferenceElement">Reference Element</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has sub-property chains</dt>
+            <dd>
+               <a href="#isLocatedWith"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedWith">is located with</a>
+               <sup class="type-op" title="object property">op</sup> 
+               <span class="logic">o</span> 
+               <a href="#isLocatedAt"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#isLocatedAt">is located at</a>
+               <sup class="type-op" title="object property">op</sup> 
+               <span class="logic">o</span> 
+               <a href="#pointsOn"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#pointsOn">points on</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     id="dataproperties">
+   <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#hasDistance"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasDistance">
+            <span>has distance</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasStation"
+            title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasStation">
+            <span>has station</span>
+         </a>
+      </li>
+   </ul>
+   <div class="entity" id="hasDistance">
+      <h3>has distance<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasDistance</p>
+      <div class="comment">
+         <span class="markdown">Describes the distance between the road infrastructure element and the reference element in the cross section</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="http://www.w3.org/2002/07/owl#topDataProperty"
+                  target="_blank"
+                  title="http://www.w3.org/2002/07/owl#topDataProperty">top data property</a>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#PositioningWithDistance"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#PositioningWithDistance">Positioning with Distance</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2002/07/owl#real"
+                  target="_blank"
+                  title="http://www.w3.org/2002/07/owl#real">real</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasStation">
+      <h3>has station<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#hasStation</p>
+      <div class="comment">
+         <span class="markdown">Describes the location on a linear reference element via the distance to the start of the linear reference element</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Point"
+                  title="http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Point">Point</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://www.w3.org/2002/07/owl#real"
+                  target="_blank"
+                  title="http://www.w3.org/2002/07/owl#real">real</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>
