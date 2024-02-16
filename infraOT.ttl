@@ -10,7 +10,7 @@
 
 <http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem> rdf:type owl:Ontology ;
                                                                                   rdfs:comment "Captures spatial relatioships in a roadinfrastructure system"@en ;
-                                                                                  rdfs:label "Infra Ontology"@en .
+                                                                                  rdfs:label "Road Infrastructure Ontology"@en .
 
 #################################################################
 #    Object Properties
@@ -99,7 +99,6 @@ infraOT:referencedBy rdf:type owl:ObjectProperty ;
                                               infraOT:isLocatedAt
                                               infraOT:pointsOn
                                             ) ;
-                     rdfs:comment "testcomment" ;
                      rdfs:label "referenced by" .
 
 
@@ -129,14 +128,14 @@ infraOT:hasStation rdf:type owl:DatatypeProperty ;
 ###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#AccidentElement
 infraOT:AccidentElement rdf:type owl:Class ;
                         rdfs:subClassOf infraOT:RoadInfrastructureElement ;
-                        rdfs:comment "Data set containing accident data" ;
+                        rdfs:comment "data set containing accident data" ;
                         rdfs:label "Accident"@en .
 
 
 ###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Bridge
 infraOT:Bridge rdf:type owl:Class ;
                rdfs:subClassOf infraOT:RoadInfrastructureElement ;
-               rdfs:comment "Dataset containing bridge data" ;
+               rdfs:comment "data set containing bridge data" ;
                rdfs:label "Bridge"@en .
 
 
@@ -157,7 +156,7 @@ infraOT:EndPoint rdf:type owl:Class ;
 ###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Equipment
 infraOT:Equipment rdf:type owl:Class ;
                   rdfs:subClassOf infraOT:RoadInfrastructureElement ;
-                  rdfs:comment "A data set that contains data on a piece of equipment. Equipment elements can be, for example, signs, traffic lights or similar." ;
+                  rdfs:comment "data set that contains data on a piece of equipment. Equipment elements can be, for example, signs, traffic lights or similar." ;
                   rdfs:label "Equipment"@en .
 
 
@@ -189,7 +188,7 @@ infraOT:HorizontalPositioningOn rdf:type owl:Class ;
 ###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Line
 infraOT:Line rdf:type owl:Class ;
              rdfs:subClassOf infraOT:ReferenceElement ;
-             rdfs:comment "Describes a linear reference element" ;
+             rdfs:comment "describes a linear, directional reference element" ;
              rdfs:label "Line"@en .
 
 
@@ -275,7 +274,7 @@ infraOT:PointLocalisation rdf:type owl:Class ;
 ###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Polyline
 infraOT:Polyline rdf:type owl:Class ;
                  rdfs:subClassOf infraOT:ReferenceElement ;
-                 rdfs:comment "Describes a linear reference element consisting of several line elements" ;
+                 rdfs:comment "describes a linear reference element consisting of several line elements" ;
                  rdfs:label "Polyline"@en .
 
 
@@ -310,7 +309,7 @@ infraOT:ReferenceElement rdf:type owl:Class ;
 ###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Road
 infraOT:Road rdf:type owl:Class ;
              rdfs:subClassOf infraOT:RoadInfrastructureElement ;
-             rdfs:comment "Dataset containing data about roads or roadsections" ;
+             rdfs:comment "data set containing data about roads or roadsections" ;
              rdfs:label "Road"@en .
 
 
@@ -356,14 +355,6 @@ infraOT:VerticalPositioningUnder rdf:type owl:Class ;
                                                  infraOT:VerticalPositioning ;
                                  rdfs:comment "describes the positioning of the road infrastructure element relative to the reference element in the cross-section in the vertical direction when the road infrastructure element is positioned under the reference element" ;
                                  rdfs:label "vertical positioning under"@en .
-
-
-#################################################################
-#    Individuals
-#################################################################
-
-###  http://www.semanticweb.org/ge87zoy/ontologies/2023/10/roadinfrastructuresystem#Positioning1
-infraOT:Positioning1 rdf:type owl:NamedIndividual .
 
 
 #################################################################
